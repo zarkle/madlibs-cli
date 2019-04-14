@@ -8,10 +8,8 @@ def welcome():
 
 def word_types(template_filepath):
     """Read template file and make a list of needed word types."""
-    fh = open(template_filepath, 'r')
-    content = fh.read()
-    fh.close()
-    return content
+    with open(template_filepath, 'r') as fh:
+        return fh.read()
 
 
 def user_input(word_types):
