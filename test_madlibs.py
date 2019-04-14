@@ -14,11 +14,14 @@ def test_read_template_file():
     content = word_types('template.txt')
     assert len(content) > 0
     assert 'Adjective' in content
+    assert isinstance('content', str)
 
 
-# def test():
-#     """Test."""
-#     pass
+def test_read_template_file_by_lines():
+    """Test template file can be read by line."""
+    lines = word_types('template.txt')
+    assert len(lines) > 0
+    assert isinstance('lines', list)
 
 
 # def test():
