@@ -5,7 +5,7 @@ from madlibs import *
 
 
 def test_setup_properly():
-    """Test files are synced and welcome function eists."""
+    """Test that files are synced and welcome function exists."""
     assert welcome
 
 
@@ -30,9 +30,12 @@ def test_template_file_doesnt_exit():
     with pytest.raises(FileNotFoundError):
         word_types('wrong_file.txt')
 
-# def test():
-#     """Test."""
-#     pass
+
+def test_output_instructions(capsys):
+    """Test instructions output correctly."""
+    user_input([])
+    captured = capsys.readouterr()
+    assert 'Enter' in captured.out
 
 
 # def test():

@@ -17,6 +17,7 @@ def word_types(template_filepath):
 
 def user_input(word_types):
     """Collect user input."""
+    print('Enter the appropriate words types:\n')
     return []
 
 
