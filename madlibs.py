@@ -1,4 +1,5 @@
 """Mad Libs Game."""
+import sys
 
 
 def welcome():
@@ -25,7 +26,10 @@ def word_types(template_filepath):
 def user_input(word_types):
     """Collect user input."""
     print('Enter the appropriate words types:\n')
-    return []
+    words = []
+    for word_type in word_types:
+        words.append(input(f'Enter a {word_type}:  '))
+    return words
 
 
 def populate_template(words):
@@ -39,5 +43,12 @@ def the_end(madlib):
     # print to file
 
 
-if __name__ == "__main__":
+def main():
+    """Main function."""
     welcome()
+    prompts = word_types(sys.argv[1])
+    words = user_input(prompts)
+
+
+if __name__ == "__main__":
+    main()

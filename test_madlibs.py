@@ -38,10 +38,18 @@ def test_output_instructions(capsys):
     assert 'Enter' in captured.out
 
 
-def test_write_file():
-    """Test output file is written."""
-    path = 'result.txt'
-    populate_template
+# def test_user_input_recorded():
+#     """Test user input is collected."""
+#     prompts = ['adjective', 'noun']
+#     words = user_input(prompts)
+#     assert words
+#     assert len(words) == 2
+
+
+# def test_write_file():
+#     """Test output file is written."""
+#     path = 'result.txt'
+#     populate_template
 
 
 # def test():
