@@ -6,9 +6,12 @@ def welcome():
     print('Welcome to Mad Libs! and some instructions')
 
 
-def word_types(template):
+def word_types(template_filepath):
     """Read template file and make a list of needed word types."""
-    return []
+    fh = open(template_filepath, 'r')
+    content = fh.read()
+    fh.close()
+    return content
 
 
 def user_input(word_types):
