@@ -9,8 +9,15 @@ def welcome():
 def word_types(template_filepath):
     """Read template file and make a list of needed word types."""
     with open(template_filepath, 'r') as fh:
+        prompts = []
+        content = fh.read().split()
+        for word in content:
+            if word[0] == '{' and word[-1] == '}':
+                prompts.append(word[1:-1])
+        return prompts
+
         # return fh.read()
-        return fh.readlines()
+        # return fh.readlines()
     # try/except FileNotFoundError:
     #     print('File Not Found. Try again.')
 
