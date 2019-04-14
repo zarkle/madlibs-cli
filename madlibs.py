@@ -15,12 +15,12 @@ def word_types(template_filepath):
         for word in content:
             if word[0] == '{' and word[-1] == '}':
                 prompts.append(word[1:-1])
-        return prompts
+    return prompts
 
         # return fh.read()
         # return fh.readlines()
     # try/except FileNotFoundError:
-    #     print('File Not Found. Try again.')
+    #     sys.exit('File Not Found. Try again.')
 
 
 def user_input(word_types):
@@ -32,22 +32,38 @@ def user_input(word_types):
     return words
 
 
-def populate_template(words):
+def populate_template(template_filepath, words):
     """Populate the template with the user input."""
-    return ''
+    with open(template_filepath, 'r') as fh:
+        content = fh.read()
+
+    curr = 0
+    new = ''
+    for word in content.split():
+        if word[0] == '{' and word[-1] == '}':
+            new += f'{words[curr]} '
+            curr += 1
+        else:
+            new += f'{word} '
+    print(new)
+    return new[:-1]
 
 
 def the_end(madlib):
     """Print resulting MadLib to user and output to new file."""
-    print('MadLib')
-    # print to file
+    print(madlib)
+    with open('madlib.txt', 'w') as fh:
+        fh.write(madlib)
 
 
 def main():
     """Main function."""
+    template = sys.argv[1]
     welcome()
-    prompts = word_types(sys.argv[1])
+    prompts = word_types(template)
     words = user_input(prompts)
+    new = populate_template(template, words)
+    the_end(new)
 
 
 if __name__ == "__main__":
