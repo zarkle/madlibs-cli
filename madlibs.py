@@ -11,6 +11,8 @@ def word_types(template_filepath):
     with open(template_filepath, 'r') as fh:
         # return fh.read()
         return fh.readlines()
+    # try/except FileNotFoundError:
+    #     print('File Not Found. Try again.')
 
 
 def user_input(word_types):

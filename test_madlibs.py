@@ -25,6 +25,11 @@ def test_read_template_file_by_lines():
     assert type(lines) == list
 
 
+def test_template_file_doesnt_exit():
+    """Test that template file exists."""
+    with pytest.raises(FileNotFoundError):
+        word_types('wrong_file.txt')
+
 # def test():
 #     """Test."""
 #     pass
