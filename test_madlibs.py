@@ -9,19 +9,20 @@ def test_setup_properly():
     assert welcome
 
 
-def test_read_template_file():
-    """Test template file can be read and returns content."""
-    content = word_types('template.txt')
-    assert len(content) > 0
-    assert 'Adjective' in content
-    assert isinstance('content', str)
+# def test_read_template_file():
+#     """Test template file can be read and returns content."""
+#     content = word_types('template.txt')
+#     assert len(content) > 0
+#     assert 'Adjective' in content
+#     assert isinstance('content', str)
 
 
 def test_read_template_file_by_lines():
     """Test template file can be read by line."""
     lines = word_types('template.txt')
     assert len(lines) > 0
-    assert isinstance('lines', list)
+    assert isinstance(lines, list)
+    assert type(lines) == list
 
 
 # def test():
