@@ -9,6 +9,13 @@ def test_setup_properly():
     assert welcome
 
 
+def test_welcome(capsys):
+    """Test welcome function."""
+    welcome()
+    captured = capsys.readouterr()
+    assert captured.out == 'Welcome to Mad Libs! and some instructions\n'
+
+
 def test_read_template_file():
     """Test template file can be read and returns content."""
     content = word_types('template.txt')
